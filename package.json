@@ -1,0 +1,24 @@
+{
+  "name": "transcription-analyzer",
+  "version": "1.0.0",
+  "description": "A transcription Analyzer for CIS 350 Software Engineering. Takes in a FASTA file and allows you to do basic DNA analysis and conversion to mRNA.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently \"cd backend && npx nodemon index.js\" \"npm run dev --prefix frontend\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Conner-DeGraaf/Transcription-Analyzer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Conner-DeGraaf/Transcription-Analyzer/issues"
+  },
+  "homepage": "https://github.com/Conner-DeGraaf/Transcription-Analyzer#readme",
+  "devDependencies": {
+    "concurrently": "^10.0.6"
+  }
+}
