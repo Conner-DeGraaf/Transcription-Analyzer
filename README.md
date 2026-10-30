@@ -42,3 +42,11 @@ npm run dev
 
 It will now be accessable in your browser at http://localhost:5173
 If you get module not found make sure you ran npm install in all three directories.
+
+## Unit Tests
+
+To run uni tests use this command in the root directory. Unit tests can be found in the *.test.js/jsx files.
+
+```bash
+npm run test
+```

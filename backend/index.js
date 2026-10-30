@@ -35,4 +35,8 @@ app.post('/api/analyze', upload.single('file'), (req, res) => {
     res.json(someTranscriptionResults);
 });
 
-app.listen(3420, () => console.log('Backend running on port 3420'));
+if (process.env.NODE_ENV != 'test') {
+    app.listen(3420, () => console.log('Backend running on port 3420'));
+}
+
+module.exports = app;
