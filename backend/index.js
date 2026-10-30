@@ -22,7 +22,9 @@ app.post('/api/analyze', upload.single('file'), (req, res) => {
     // This is the raw file buffer that contains the uploaded FASTA file.
     const fileData = req.file.buffer.toString('utf-8');
 
-    
+    console.log("File recived with data: " + fileData);
+
+
 
     // Fill this in with the information that needs to be sent back to the frontend UI.
     const someTranscriptionResults = {
