@@ -1,18 +1,28 @@
-import { useState } from 'react'
-import axios from 'axios'
-import './App.css'
+import { useState, ChangeEvent } from 'react';
+import axios from 'axios';
+import './App.css';
+
+// From backend/index.ts
+interface AnalysisResult{
+    realDNAInfo: string;
+    otherInfo: string;
+}
+
 
 function App() {
-  const [file, setFile] = useState(null);
-  const [result, setResult] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [file, setFile] = useState<File | null>(null);
+  const [result, setResult] = useState<AnalysisResult | null>(null);
+  const [loading, setLoading] = useState<boolean>(false);
 
-  const handleFileChange = (e) => {
-    setFile(e.target.files[0]);
-    setResult(null);
+  const handleFileChange = (e : ChangeEvent<HTMLInputElement>) => {
+    if(e.target.files && e.target.files.length > 0)
+    {
+      setFile(e.target.files[0]);
+      setResult(null);
+    }
   };
 
-  const handleUpload = async (e) => {
+  const handleUpload = async (e : ChangeEvent<HTMLFormElement>) => {
     console.log("handling upload");
     e.preventDefault();
     if (!file) return;
@@ -24,7 +34,7 @@ function App() {
     try {
 
       console.log("Posting");
-      const response = await axios.post('http://localhost:3420/api/analyze', formData);
+      const response = await axios.post<AnalysisResult>('http://localhost:3420/api/analyze', formData);
       setResult(response.data);
 
       console.log("Response Recived " + JSON.stringify(response.data));

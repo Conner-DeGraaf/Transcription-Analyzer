@@ -2,7 +2,7 @@
 
 import { render, screen, fireEvent } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
-import App from './App.jsx';
+import App from './App';
 
 // This file can be used to write frontend unit tests
 
@@ -19,7 +19,7 @@ describe('App Component', () => {
 
   it('enables the button after selecting a file', () => {
     render(<App />);
-    const input = screen.getByLabelText('Upload FASTA file', { hidden: true }); // the file input. Make sure to update this if you change the label
+    const input = screen.getByLabelText('Upload FASTA file'); // the file input. Make sure to update this if you change the label
     const button = screen.getByRole('button', { name: /Run Analysis/i });
 
     const dummyFile = new File(['ATCG'], 'dna.txt', { type: 'text/plain' });

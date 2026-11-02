@@ -12,7 +12,8 @@
   "dependencies": {
     "cors": "^2.8.6",
     "express": "^5.3.0",
-    "multer": "^2.5.0"
+    "multer": "^2.5.0",
+    "supertest": "^7.3.1"
   },
   "devDependencies": {
     "@types/cors": "^2.8.19",
