@@ -11,20 +11,22 @@ import App from './App';
 // If you want to test new files in the future, any *.test.jsx file should be tested when you run `npm run test`.
 
 describe('App Component', () => {
-  it('disables the analyze button when no file is selected', () => {
-    render(<App />);
-    const button = screen.getByRole('button', { name: /Run Analysis/i });
-    expect(button).toBeDisabled();
-  });
+  describe("FR-01", () => {
+    it('disables the analyze button when no file is selected', () => {
+      render(<App />);
+      const button = screen.getByRole('button', { name: /Run Analysis/i });
+      expect(button).toBeDisabled();
+    });
 
-  it('enables the button after selecting a file', () => {
-    render(<App />);
-    const input = screen.getByLabelText('Upload FASTA file'); // the file input. Make sure to update this if you change the label
-    const button = screen.getByRole('button', { name: /Run Analysis/i });
+    it('enables the button after selecting a file', () => {
+      render(<App />);
+      const input = screen.getByLabelText('Upload FASTA file'); // the file input. Make sure to update this if you change the label
+      const button = screen.getByRole('button', { name: /Run Analysis/i });
 
-    const dummyFile = new File(['ATCG'], 'dna.txt', { type: 'text/plain' });
-    fireEvent.change(input, { target: { files: [dummyFile] } });
+      const dummyFile = new File(['ATCG'], 'dna.txt', { type: 'text/plain' });
+      fireEvent.change(input, { target: { files: [dummyFile] } });
 
-    expect(button).not.toBeDisabled();
-  });
+      expect(button).not.toBeDisabled();
+    });
+  })
 });

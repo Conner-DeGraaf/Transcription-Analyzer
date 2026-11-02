@@ -3,9 +3,9 @@ import axios from 'axios';
 import './App.css';
 
 // From backend/index.ts
-interface AnalysisResult{
-    realDNAInfo: string;
-    otherInfo: string;
+interface AnalysisResult {
+  realDNAInfo: string;
+  otherInfo: string;
 }
 
 
@@ -14,15 +14,14 @@ function App() {
   const [result, setResult] = useState<AnalysisResult | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
 
-  const handleFileChange = (e : ChangeEvent<HTMLInputElement>) => {
-    if(e.target.files && e.target.files.length > 0)
-    {
+  const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files.length > 0) {
       setFile(e.target.files[0]);
       setResult(null);
     }
   };
 
-  const handleUpload = async (e : ChangeEvent<HTMLFormElement>) => {
+  const handleUpload = async (e: ChangeEvent<HTMLFormElement>) => {
     console.log("handling upload");
     e.preventDefault();
     if (!file) return;
@@ -69,7 +68,7 @@ function App() {
           <div className="mt-8 p-5 bg-gray-20 border border-white rounded-lg">
             <h2 className="font-display text-sm font-bold text-white tracking-wider mb-3">Analysis Output</h2>
             <p className="text-left font-display text-sm text-white tracking-wider mb-3">Replace this section with a good looking ui using the json result.</p>
-            <br/>
+            <br />
             <p className="text-left font-display text-sm text-white tracking-wider mb-3">JSON response sent from the backend:</p>
             <pre className="text-left font-display text-sm text-white overflow-x-auto whitespace-pre-wrap">
               {JSON.stringify(result, null, 2)}
