@@ -1,6 +1,7 @@
-const express = require('express');
-const cors = require('cors');
-const multer = require('multer');
+
+import express, { Request, Response } from 'express';
+import cors from 'cors';
+import multer from 'multer';
 
 const app = express();
 app.use(cors());
@@ -10,7 +11,16 @@ app.use(express.json());
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
-app.post('/api/analyze', upload.single('file'), (req, res) => {
+interface MulterRequest extends Request {
+    file?: Express.Multer.File;
+}
+
+interface AnalysisResult{
+    realDNAInfo: string,
+    otherInfo: string
+}
+
+app.post('/api/analyze', upload.single('file'), (req : MulterRequest, res : Response): any => {
 
     // If you want to learn more about req.file look at
     // https://github.com/expressjs/multer#API
@@ -27,7 +37,7 @@ app.post('/api/analyze', upload.single('file'), (req, res) => {
 
 
     // Fill this in with the information that needs to be sent back to the frontend UI.
-    const someTranscriptionResults = {
+    const someTranscriptionResults: AnalysisResult = {
         realDNAInfo: 'So true',
         otherInfo: 'replace me'
     };
@@ -39,4 +49,4 @@ if (process.env.NODE_ENV != 'test') {
     app.listen(3420, () => console.log('Backend running on port 3420'));
 }
 
-module.exports = app;
+export default app;

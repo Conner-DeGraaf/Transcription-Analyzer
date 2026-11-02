@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import request from 'supertest'
-import app from './index.js'
+import app from './index'
 
 // This file can be used to write backend unit tests
 
