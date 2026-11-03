@@ -3,11 +3,22 @@ import axios from 'axios';
 import './App.css';
 
 // From backend/index.ts
-interface AnalysisResult {
-  realDNAInfo: string;
-  otherInfo: string;
+interface AnalysisResult{
+    //DNA Analysis
+    sequenceLength: Number,
+    gc: GCContent,
+    // Transcription
+    RNASequence: string
 }
 
+interface GCContent{
+    guaninePercent: Number, // ect. 35.4% G as 35.4
+    cytosinePercent : Number
+}
+
+// TODO: MAX
+// This whole file is your responsibility. Good luck.
+// Display Results & Export File
 
 function App() {
   const [file, setFile] = useState<File | null>(null);
@@ -36,7 +47,7 @@ function App() {
       const response = await axios.post<AnalysisResult>('http://localhost:3420/api/analyze', formData);
       setResult(response.data);
 
-      console.log("Response Recived " + JSON.stringify(response.data));
+      console.log("Response Received " + JSON.stringify(response.data));
     } catch (error) {
       console.error("Error uploading file:", error);
     } finally {

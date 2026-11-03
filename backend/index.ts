@@ -16,8 +16,28 @@ interface MulterRequest extends Request {
 }
 
 interface AnalysisResult{
-    realDNAInfo: string,
-    otherInfo: string
+    //DNA Analysis
+    sequenceLength: Number,
+    gc: GCContent,
+    // Transcription
+    RNASequence: string
+}
+
+interface GCContent{
+    guaninePercent: Number, // ect. 35.4% G as 35.4
+    cytosinePercent : Number
+}
+
+// Takes in a raw FASTA file and returns a string of DNA (GTCA)
+function ValidateFASTAFile(fileData : string): string
+{
+    if(!fileData){
+        throw new Error("Empty file")
+    }
+
+    // Other checks
+
+    return "GTCA";
 }
 
 app.post('/api/analyze', upload.single('file'), (req : MulterRequest, res : Response): any => {
@@ -32,14 +52,25 @@ app.post('/api/analyze', upload.single('file'), (req : MulterRequest, res : Resp
     // This is the raw file buffer that contains the uploaded FASTA file.
     const fileData = req.file.buffer.toString('utf-8');
 
-    console.log("File recived with data: " + fileData);
+    console.log("File received with data: \n" + fileData);
 
+    // TODO: Conner
+    // Validate FASTA file
+    const dna: string = ValidateFASTAFile(fileData);
 
+    // TODO: Ashton
+    // Create GC Content & Other DNA Analysis
+    const gc : GCContent = {"cytosinePercent": 0, "guaninePercent": 0}
+
+    // TODO: Addison
+    // Transcription
+    const RNASequence = ""
 
     // Fill this in with the information that needs to be sent back to the frontend UI.
     const someTranscriptionResults: AnalysisResult = {
-        realDNAInfo: 'So true',
-        otherInfo: 'replace me'
+        sequenceLength: 0,
+        gc,
+        RNASequence
     };
 
     res.json(someTranscriptionResults);

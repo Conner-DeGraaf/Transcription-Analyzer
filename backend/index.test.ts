@@ -10,7 +10,7 @@ import app from './index'
 
 describe('POST /api/analyze', () => {
     describe("FR-02", () => {
-        it('Should return error 400 if no file is attatched.', async () => {
+        it('Should return error 400 if no file is attached.', async () => {
             const res = await request(app).post('/api/analyze');
             expect(res.status).toBe(400);
             expect(res.text).toBe('No file uploaded.');
