@@ -19,7 +19,7 @@ expect(transcribeCodingDNA('atgc')).toBe('AUGC');
     });
 
     it('transcribes a template written 3 to 5', () => {
-expect(transcribeTemplateDNA('TACG')).toBe('AUGC');
+expect(transcribeTemplateDNA('TACG')).toBe('CGUA');
     });
 
 });
