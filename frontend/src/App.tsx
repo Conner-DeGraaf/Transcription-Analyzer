@@ -2,7 +2,8 @@
 import { useState, ChangeEvent } from 'react';
 import axios from 'axios';
 import './App.css';
-import { AnalysisResult, GCContent } from '../../lib/transcription-analysis_types'
+import {AnalysisView} from "./results.tsx";
+import { AnalysisResult } from '../../lib/transcription-analysis_types'
 
 
 function App() {
@@ -85,17 +86,7 @@ function App() {
             {loading ? 'Analyzing...' : (file ? ('Run Analysis on ' + file?.name) : 'Attach a file to run analysis')}
           </button>
         </form>
-        {result && (
-          <div className="mt-8 p-5 bg-gray-20 border border-white rounded-lg">
-            <h2 className="font-display text-sm font-bold text-white tracking-wider mb-3">Analysis Output</h2>
-            <p className="text-left font-display text-sm text-white tracking-wider mb-3">Replace this section with a good looking ui using the json result.</p>
-            <br />
-            <p className="text-left font-display text-sm text-white tracking-wider mb-3">JSON response sent from the backend:</p>
-            <pre className="text-left font-display text-sm text-white overflow-x-auto whitespace-pre-wrap">
-              {JSON.stringify(result, null, 2)}
-            </pre>
-          </div>
-        )}
+        {result && (<AnalysisView result={result} />)}
       </section>
 
       <section id="spacer"></section>
