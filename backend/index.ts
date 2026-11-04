@@ -15,6 +15,7 @@ const upload = multer({ storage: storage });
 interface MulterRequest extends Request {
     file?: Express.Multer.File;
     body: {
+        strand: any;
         direction?: string;
     }
 }
@@ -81,7 +82,7 @@ app.post('/api/analyze', upload.single('file'), (req : MulterRequest, res : Resp
 
     // TODO: Addison
     // Transcription
-    const strand = req.body.strand;
+    const strand = req.body?.strand;
 
     if (strand !== "coding" && strand !== "template") {
         return res.status(400).send("Select coding or template strand.");
@@ -104,3 +105,4 @@ if (process.env.NODE_ENV != 'test') {
 }
 
 export default app;
+export { transcribeCodingDNA, transcribeTemplateDNA };
