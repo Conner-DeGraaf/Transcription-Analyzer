@@ -69,8 +69,8 @@ function App() {
                 name="direction"
                 // disabled={!file||loading}
                 onChange={handleDirectionChange}>
-                <option value="5'-t;3'">5' -&gt; 3'</option>
-                <option value="3'-t;5'">3'-&gt; 5'</option>
+                <option value="5'->3'">5' -&gt; 3'</option>
+                <option value="3'->5'">3'-&gt; 5'</option>
               </select>
             </td>
           </tr>
