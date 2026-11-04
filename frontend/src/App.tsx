@@ -89,6 +89,7 @@ function App() {
             <p className="text-left font-display text-sm text-white tracking-wider mb-3">Replace this section with a good looking ui using the json result.</p>
             <br />
             <p className="text-left font-display text-sm text-white tracking-wider mb-3">JSON response sent from the backend:</p>
+            <a href={result.rnaDownload} className='text-left text-lime-200'><p>Download results</p></a>
             <pre className="text-left font-display text-sm text-white overflow-x-auto whitespace-pre-wrap">
               {JSON.stringify(result, null, 2)}
             </pre>

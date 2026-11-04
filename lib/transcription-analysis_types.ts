@@ -6,7 +6,8 @@ interface AnalysisResult{
     sequenceLength: Number,
     gc: GCContent,
     // Transcription
-    RNASequence: string
+    RNASequence: string,
+    rnaDownload: string
 }
 
 interface GCContent{

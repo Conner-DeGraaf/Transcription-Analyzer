@@ -25,8 +25,8 @@ describe('App Component', () => {
 
       const dummyFile = new File(['ATCG'], 'dna.txt', { type: 'text/plain' });
       fireEvent.change(input, { target: { files: [dummyFile] } });
-
       expect(button).not.toBeDisabled();
     });
+    
   })
 });
