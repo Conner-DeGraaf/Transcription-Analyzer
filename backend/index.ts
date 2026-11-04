@@ -2,6 +2,7 @@
 import express, { Request, Response } from 'express';
 import cors from 'cors';
 import multer from 'multer';
+import { AnalysisResult, GCContent } from '../lib/transcription-analysis_types'
 
 const app = express();
 app.use(cors());
@@ -13,19 +14,9 @@ const upload = multer({ storage: storage });
 
 interface MulterRequest extends Request {
     file?: Express.Multer.File;
-}
-
-interface AnalysisResult{
-    //DNA Analysis
-    sequenceLength: Number,
-    gc: GCContent,
-    // Transcription
-    RNASequence: string
-}
-
-interface GCContent{
-    guaninePercent: Number, // ect. 35.4% G as 35.4
-    cytosinePercent : Number
+    body: {
+        direction?: string;
+    }
 }
 
 // Takes in a raw FASTA file and returns a string of DNA (GTCA)
@@ -53,6 +44,7 @@ app.post('/api/analyze', upload.single('file'), (req : MulterRequest, res : Resp
     const fileData = req.file.buffer.toString('utf-8');
 
     console.log("File received with data: \n" + fileData);
+    console.log("Received direction: " + req.body.direction);
 
     // TODO: Conner
     // Validate FASTA file
