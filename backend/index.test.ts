@@ -10,7 +10,7 @@ import app, { transcribeCodingDNA, transcribeTemplateDNA } from './index';
 // transcription unit test added (perhaps)
 describe('DNA transcription', () => {
 
-    it('conversts coding DNA to RNA', () => {
+    it('converts coding DNA to RNA', () => {
 expect(transcribeCodingDNA('ATGC')).toBe('AUGC');
     });
 
