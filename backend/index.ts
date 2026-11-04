@@ -15,7 +15,7 @@ const upload = multer({ storage: storage });
 interface MulterRequest extends Request {
     file?: Express.Multer.File;
     body: {
-        direction?: string;
+        direction?: string; // "5'->3'" or "3'->5'"
     }
 }
 
