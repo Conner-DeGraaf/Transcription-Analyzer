@@ -89,7 +89,13 @@ app.post('/api/analyze', upload.single('file'), (req : MulterRequest, res : Resp
 
     // TODO: Addison
     // Transcription
-    const RNASequence = ""
+    const strand = req.body.strand;
+
+    if (strand !== "coding" && strand !== "template") {
+        return res.status(400).send("Select coding or template strand.");
+    }
+
+    const RNASequence = strand === "coding" ? transcribeCodingDNA(dna) : transcribeTemplateDNA(dna);
 
     // Fill this in with the information that needs to be sent back to the frontend UI.
     const someTranscriptionResults: AnalysisResult = {
