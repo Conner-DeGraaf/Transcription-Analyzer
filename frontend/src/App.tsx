@@ -1,15 +1,13 @@
+/* Front loading page for website */
 import { useState, ChangeEvent } from 'react';
 import axios from 'axios';
 import './App.css';
 import { AnalysisResult, GCContent } from '../../lib/transcription-analysis_types'
 
-// TODO: MAX
-// This whole file is your responsibility. Good luck.
-// Display Results & Export File
 
 function App() {
   const [file, setFile] = useState<File | null>(null);
-  const [direction, setDirection] = useState<string | null>("5' -> 3'");
+  const [direction, setDirection] = useState("5'->3'");
   const [result, setResult] = useState<AnalysisResult | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -34,7 +32,7 @@ function App() {
     setLoading(true);
     const formData = new FormData();
     formData.append('file', file);
-    formData.append('direction', direction!);
+    formData.append('direction', direction);
 
     try {
 
@@ -52,26 +50,30 @@ function App() {
   return (
     <>
       <section id="center">
-        <h1 className='font-display'>Insert fully working transcription analyzer here :)</h1>
+        <h1 className='font-display'>Transcript Analyzer</h1>
         <div className="border-2 border-gray-100 p-1 m-3">
         <table>
+          <tbody>
           <tr>
-            <input
-              type="file"
-              onChange={handleFileChange}
-              aria-label="Upload FASTA file"
-              accept=".fa,.fasta,.fna,.ffn,.fas" // Explicitly don't include .faa because those are for amino acid sequences
-              className="font-display inline text-sm text-gray-600 file:mr-4 file:py-2.5 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100 transition-colors"
-            />
-            <label>Sequence Direction: </label>
-            <select
-              name="direction"
-              onChange={handleDirectionChange}
-              disabled={!file||loading}>
-              <option value="5'-&gt;3'">5' -&gt; 3'</option>
-              <option value="3'-&gt;5'">3' -&gt; 5'</option>
-            </select>
+            <td>
+              <input
+                type="file"
+                onChange={handleFileChange}
+                aria-label="Upload FASTA file"
+                accept=".fa,.fasta,.fna,.ffn,.fas" // Explicitly don't include .faa because those are for amino acid sequences
+                className="font-display inline text-sm text-gray-600 file:mr-4 file:py-2.5 file:px-4 file:rounded-lg file:border-0 file:font-semibold file:bg-indigo-50 hover:file:bg-indigo-100 transition-colors"
+              />
+              <label>Sequence Direction: </label>
+              <select
+                name="direction"
+                // disabled={!file||loading}
+                onChange={handleDirectionChange}>
+                <option value="5'-t;3'">5' -&gt; 3'</option>
+                <option value="3'-t;5'">3'-&gt; 5'</option>
+              </select>
+            </td>
           </tr>
+          </tbody>
         </table>
         </div>
         <form onSubmit={handleUpload} className="flex flex-col gap-5">
