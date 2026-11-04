@@ -11,16 +11,20 @@ import app, { transcribeCodingDNA, transcribeTemplateDNA } from './index';
 describe('DNA transcription', () => {
 
     it('converts coding DNA to RNA', () => {
-expect(transcribeCodingDNA('ATGC')).toBe('AUGC');
+        expect(transcribeCodingDNA('ATGC')).toBe('AUGC');
     });
 
     it('handles lowercase coding DNA', () => {
-expect(transcribeCodingDNA('atgc')).toBe('AUGC');
+        expect(transcribeCodingDNA('atgc')).toBe('AUGC');
     });
 
     it('transcribes a template written 3 to 5', () => {
-expect(transcribeTemplateDNA('TACG')).toBe('CGUA');
+        expect(transcribeTemplateDNA('TACG')).toBe('CGUA');
     });
+
+    it('handles lowercase template DNA', ()=>{
+        expect(transcribeTemplateDNA('tacg')).toBe('CGUA');
+    }); 
 
 });
 
