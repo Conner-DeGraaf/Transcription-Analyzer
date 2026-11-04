@@ -29,4 +29,9 @@ describe('App Component', () => {
     });
     
   })
+
+  // TODO: Implement this when the front end fully displays the RNA URL:
+  /*describe("FR-37", () => {
+    // The Transcription Analyzer SHALL be able to hand the generated file to the browser for download when file generation completes.
+  })*/
 });

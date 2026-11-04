@@ -2,7 +2,6 @@
 import express, { Request, Response } from 'express';
 import cors from 'cors';
 import multer from 'multer';
-import crytpo from 'crypto'
 import { AnalysisResult, GCContent } from '../lib/transcription-analysis_types';
 import { GetResults, SaveResults } from './results'
 
