@@ -2,10 +2,6 @@
 import {AnalysisResult} from '../../lib/transcription-analysis_types'
 import './App.css';
 
-type AnalysisViewProps = {
-    result: AnalysisResult
-}
-
 /**
  * Analysis output
  * @param param0
