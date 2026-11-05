@@ -3,9 +3,8 @@ import express, { Request, Response } from 'express';
 import cors from 'cors';
 import multer from 'multer';
 import { AnalysisResult, GCContent } from '../lib/transcription-analysis_types';
-import { GetResults, SaveResults } from './results'
+import { GetResults, SaveResults } from './results';
 import { isNotValidDNASequence, isNotValidFastaFormat } from './validation/validation';
-
 
 const app = express();
 app.use(cors());
@@ -20,7 +19,7 @@ const upload = multer({ storage: storage });
 interface MulterRequest extends Request {
     file?: Express.Multer.File;
     body: {
-        direction?: string;
+        direction?: string; // "5'->3'" or "3'->5'"
     }
 }
 

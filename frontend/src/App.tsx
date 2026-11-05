@@ -1,15 +1,14 @@
+/* Front loading page for website */
 import { useState, ChangeEvent } from 'react';
 import axios from 'axios';
 import './App.css';
-import { AnalysisResult, GCContent } from '../../lib/transcription-analysis_types'
+import {AnalysisView} from "./results.tsx";
+import { AnalysisResult } from '../../lib/transcription-analysis_types'
 
-// TODO: MAX
-// This whole file is your responsibility. Good luck.
-// Display Results & Export File
 
 function App() {
   const [file, setFile] = useState<File | null>(null);
-  const [direction, setDirection] = useState<string | null>("5' -> 3'");
+  const [direction, setDirection] = useState("5'->3'");
   const [result, setResult] = useState<AnalysisResult | null>(null);
   const [uploadError, setUploadError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
@@ -35,13 +34,13 @@ function App() {
     setLoading(true);
     const formData = new FormData();
     formData.append('file', file);
-    formData.append('direction', direction!);
+    formData.append('direction', direction);
 
     try {
 
       console.log("Posting");
       const response = await axios.post<AnalysisResult>('http://localhost:3420/api/analyze', formData);
-      setResult(response.data);
+      if(response.data && response.data.gc) setResult(response.data);
       setUploadError(null);
 
       console.log("Response Received " + JSON.stringify(response.data));
@@ -56,7 +55,7 @@ function App() {
   return (
     <>
       <section id="center">
-        <h1 className='font-display'>Insert fully working transcription analyzer here :)</h1>
+        <h1 className='font-display'>Transcript Analyzer</h1>
         <div className="border-2 border-gray-100 p-1 m-3">
         <div className="grid grid-cols-4 items-center">
             <input
@@ -71,8 +70,8 @@ function App() {
               name="direction"
               onChange={handleDirectionChange}
               disabled={!file||loading}>
-              <option value="5'-&gt;3'">5' -&gt; 3'</option>
-              <option value="3'-&gt;5'">3' -&gt; 5'</option>
+              <option value="5'->3'">5' -&gt; 3'</option>
+              <option value="3'->5'">3' -&gt; 5'</option>
             </select>
             {uploadError && (
               <p className="mt-2 text-sm font-medium text-red-600">
@@ -90,18 +89,7 @@ function App() {
             {loading ? 'Analyzing...' : (file ? ('Run Analysis on ' + file?.name) : 'Attach a file to run analysis')}
           </button>
         </form>
-        {result && (
-          <div className="mt-8 p-5 bg-gray-20 border border-white rounded-lg">
-            <h2 className="font-display text-sm font-bold text-white tracking-wider mb-3">Analysis Output</h2>
-            <p className="text-left font-display text-sm text-white tracking-wider mb-3">Replace this section with a good looking ui using the json result.</p>
-            <br />
-            <p className="text-left font-display text-sm text-white tracking-wider mb-3">JSON response sent from the backend:</p>
-            <a href={result.rnaDownload} className='text-left text-lime-200'><p>Download results</p></a>
-            <pre className="text-left font-display text-sm text-white overflow-x-auto whitespace-pre-wrap">
-              {JSON.stringify(result, null, 2)}
-            </pre>
-          </div>
-        )}
+        {result && (<AnalysisView result={result} />)}
       </section>
 
       <section id="spacer"></section>
