@@ -25,8 +25,13 @@ describe('App Component', () => {
 
       const dummyFile = new File(['ATCG'], 'dna.txt', { type: 'text/plain' });
       fireEvent.change(input, { target: { files: [dummyFile] } });
-
       expect(button).not.toBeDisabled();
     });
+    
   })
+
+  // TODO: Implement this when the front end fully displays the RNA URL:
+  /*describe("FR-37", () => {
+    // The Transcription Analyzer SHALL be able to hand the generated file to the browser for download when file generation completes.
+  })*/
 });

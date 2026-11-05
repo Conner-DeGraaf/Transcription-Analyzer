@@ -86,7 +86,8 @@ function App() {
             {loading ? 'Analyzing...' : (file ? ('Run Analysis on ' + file?.name) : 'Attach a file to run analysis')}
           </button>
         </form>
-        {result && (<AnalysisView result={result} />)}
+        {result && (<AnalysisView result={result} />
+            <a href={result.rnaDownload} className='text-left text-lime-200'><p>Download results</p></a>)}
       </section>
 
       <section id="spacer"></section>
