@@ -3,7 +3,7 @@ import express, { Request, Response } from 'express';
 import cors from 'cors';
 import multer from 'multer';
 import { AnalysisResult, GCContent } from '../lib/transcription-analysis_types';
-import { GetResults, SaveResults } from './results'
+import { GetResults, SaveResults } from './results';
 
 
 const app = express();

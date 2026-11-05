@@ -39,7 +39,7 @@ function App() {
 
       console.log("Posting");
       const response = await axios.post<AnalysisResult>('http://localhost:3420/api/analyze', formData);
-      setResult(response.data);
+      if(response.data && response.data.gc) setResult(response.data);
 
       console.log("Response Received " + JSON.stringify(response.data));
     } catch (error) {
