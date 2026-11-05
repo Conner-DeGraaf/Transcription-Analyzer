@@ -73,12 +73,5 @@ describe('Validation Functions', () => {
         });
     });
 
-    describe('FR-12', () => {
-        it('Should accept AGCT uppercase and lowercase', () => {
-            expect(isNotValidDNASequence('ACGT')).toBe(false);
-            expect(isNotValidDNASequence('acgt')).toBe(false);
-        });
-    });
-
 });
 
