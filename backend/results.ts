@@ -82,6 +82,6 @@ function GetResults(req: Request, res: Response) {
 }
 
 export { GetResults, SaveResults }
-export const _testExports = process.env.NODE_ENV === 'test' 
-  ? { transcriptionResults } 
-  : undefined;
+export const _testExports = process.env.NODE_ENV === 'test'
+    ? { transcriptionResults }
+    : undefined;

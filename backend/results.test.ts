@@ -20,15 +20,15 @@ describe('POST /api/results', () => {
             expect(res.text).toBe("Result has expired, or could not be found.");
         });
     }),
-        describe("FR-38", () => {
-            it('Should give a valid download url for the output file.', async () => {
-                const uploadRes = await uploadTestFile();
-                expect(uploadRes).toBeDefined();
-                const res = await request(app).get(uploadRes.body.rnaDownload);
-                expect(res.status).toBe(200);
-                expect(res.text.substring(0, 20)).toBe(">ref|NC_000001.11|:2");
-            });
-        })
+    describe("FR-38", () => {
+        it('Should give a valid download url for the output file.', async () => {
+            const uploadRes = await uploadTestFile();
+            expect(uploadRes).toBeDefined();
+            const res = await request(app).get(uploadRes.body.rnaDownload);
+            expect(res.status).toBe(200);
+            expect(res.text.substring(0, 20)).toBe(">ref|NC_000001.11|:2");
+        });
+    }),
     describe("FR-36", () => {
         it('A file is generated from input.', async () => {
             expect(_testExports).toBeDefined();
@@ -64,7 +64,7 @@ describe('POST /api/results', () => {
 
             const generatedKey = _testExports?.transcriptionResults.keys().next().value!;
             const storedResult = _testExports?.transcriptionResults.get(generatedKey);
-            expect(storedResult?.fileData.substring(storedResult?.fileData.indexOf('\n')+1)).toBe("UTA");
+            expect(storedResult?.fileData.substring(storedResult?.fileData.indexOf('\n') + 1)).toBe("UTA");
         });
     })
 }

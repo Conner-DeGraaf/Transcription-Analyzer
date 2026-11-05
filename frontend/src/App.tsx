@@ -10,6 +10,7 @@ function App() {
   const [file, setFile] = useState<File | null>(null);
   const [direction, setDirection] = useState("5'->3'");
   const [result, setResult] = useState<AnalysisResult | null>(null);
+  const [uploadError, setUploadError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
 
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -40,42 +41,44 @@ function App() {
       console.log("Posting");
       const response = await axios.post<AnalysisResult>('http://localhost:3420/api/analyze', formData);
       if(response.data && response.data.gc) setResult(response.data);
+      setUploadError(null);
 
       console.log("Response Received " + JSON.stringify(response.data));
-    } catch (error) {
-      console.error("Error uploading file:", error);
+    } catch (error : any) {
+      const message = error.response?.data?.error ?? 'Upload failed. Please try again.';
+      setUploadError(message);
     } finally {
       setLoading(false);
     }
   };
+
   return (
     <>
       <section id="center">
         <h1 className='font-display'>Transcript Analyzer</h1>
         <div className="border-2 border-gray-100 p-1 m-3">
-        <table>
-          <tbody>
-          <tr>
-            <td>
-              <input
-                type="file"
-                onChange={handleFileChange}
-                aria-label="Upload FASTA file"
-                accept=".fa,.fasta,.fna,.ffn,.fas" // Explicitly don't include .faa because those are for amino acid sequences
-                className="font-display inline text-sm text-gray-600 file:mr-4 file:py-2.5 file:px-4 file:rounded-lg file:border-0 file:font-semibold file:bg-indigo-50 hover:file:bg-indigo-100 transition-colors"
-              />
-              <label>Sequence Direction: </label>
-              <select
-                name="direction"
-                // disabled={!file||loading}
-                onChange={handleDirectionChange}>
-                <option value="5'->3'">5' -&gt; 3'</option>
-                <option value="3'->5'">3'-&gt; 5'</option>
-              </select>
-            </td>
-          </tr>
-          </tbody>
-        </table>
+        <div className="grid grid-cols-4 items-center">
+            <input
+              type="file"
+              onChange={handleFileChange}
+              aria-label="Upload FASTA file"
+              accept=".fa,.fasta,.fna,.ffn,.fas" // Explicitly don't include .faa because those are for amino acid sequences
+              className="font-display inline text-sm text-gray-600 file:mr-4 file:py-2.5 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100 transition-colors"
+            />
+            <label>Sequence Direction: </label>
+            <select
+              name="direction"
+              onChange={handleDirectionChange}
+              disabled={!file||loading}>
+              <option value="5'->3'">5' -&gt; 3'</option>
+              <option value="3'->5'">3' -&gt; 5'</option>
+            </select>
+            {uploadError && (
+              <p className="mt-2 text-sm font-medium text-red-600">
+                {uploadError}
+              </p>
+            )}
+        </div>
         </div>
         <form onSubmit={handleUpload} className="flex flex-col gap-5">
           <button
