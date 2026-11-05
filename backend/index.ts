@@ -5,6 +5,7 @@ import multer from 'multer';
 import { AnalysisResult, GCContent } from '../lib/transcription-analysis_types';
 import { GetResults, SaveResults } from './results';
 import { isNotValidDNASequence, isNotValidFastaFormat } from './validation/validation';
+import { parseDNAFromFASTA } from './parse-dna';
 
 const app = express();
 app.use(cors());
@@ -51,12 +52,11 @@ app.post('/api/analyze', upload.single('file'), (req: MulterRequest, res: Respon
     // This is the raw file buffer that contains the uploaded FASTA file.
     const fileData = req.file.buffer.toString('utf-8');
 
-    console.log("File received with data: \n" + fileData);
-    console.log("Received direction: " + req.body.direction);
-
     if (isNotValidDNASequence(fileData)) {
         return res.status(422).json({ error: 'Invalid DNA sequence.' });
     }
+
+    const dnaSequence = parseDNAFromFASTA(fileData, req.body.direction!);
 
     // TODO: Ashton
     // Create GC Content & Other DNA Analysis
@@ -70,7 +70,7 @@ app.post('/api/analyze', upload.single('file'), (req: MulterRequest, res: Respon
 
     // Fill this in with the information that needs to be sent back to the frontend UI.
     const someTranscriptionResults: AnalysisResult = {
-        sequenceLength: 0,
+        sequenceLength: dnaSequence.length,
         gc,
         RNASequence,
         rnaDownload: rnaDownloadURL

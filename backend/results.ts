@@ -32,7 +32,6 @@ function CreateOutputFile(rna: string, inputFASTA: string) {
  * @returns - The URL that the results can be downloaded at.
 */
 function SaveResults(fileName: string, rna: string, inputFASTA: string): string {
-    console.log(`File name: ${fileName}`)
 
     var outputFileName = fileName
     if (fileName.indexOf('.') != -1) {
@@ -48,8 +47,6 @@ function SaveResults(fileName: string, rna: string, inputFASTA: string): string 
 
     const resultID = crypto.randomUUID();
     transcriptionResults.set(resultID, result);
-
-    console.log(`Saved ${result.fileData} at ${resultID} with name ${result.fileName}`);
 
     const msToDeleteAfter = 3600000;
     setTimeout(() => {
