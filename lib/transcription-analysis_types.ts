@@ -1,17 +1,16 @@
-import { getCompileCacheDir } from "node:module"
-
 
 interface AnalysisResult{
     //DNA Analysis
-    sequenceLength: Number,
+    sequenceLength: number,
     gc: GCContent,
     // Transcription
-    RNASequence: string
+    RNASequence: string,
+    rnaDownload: string
 }
 
 interface GCContent{
-    guaninePercent: Number, // ect. 35.4% G as 35.4
-    cytosinePercent : Number
+    guaninePercent: number, // ect. 35.4% G as 35.4
+    cytosinePercent : number
 }
 
 export type {AnalysisResult, GCContent};
