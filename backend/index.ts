@@ -6,6 +6,7 @@ import { AnalysisResult, GCContent } from '../lib/transcription-analysis_types';
 import { GetResults, SaveResults } from './results';
 import { isNotValidDNASequence, isNotValidFastaFormat } from './validation/validation';
 import { parseDNAFromFASTA } from './parse-dna';
+import { analyzeDNA } from './dnaAnalysis/dnaanalysis';
 
 const app = express();
 app.use(cors());
@@ -49,23 +50,17 @@ app.post('/api/analyze', upload.single('file'), (req: MulterRequest, res: Respon
 
     // TODO: Ashton
     // Create GC Content & Other DNA Analysis
-    const gc: GCContent = { "cytosinePercent": 0, "guaninePercent": 0 }
+    var results : AnalysisResult = analyzeDNA(dnaSequence);
 
     // TODO: Addison
     // Transcription
-    const RNASequence = ""
+    results.RNASequence = ""
 
-    const rnaDownloadURL = SaveResults(req.file.originalname, RNASequence, fileData);
+    results.rnaDownload = SaveResults(req.file.originalname, results.RNASequence, fileData);
 
     // Fill this in with the information that needs to be sent back to the frontend UI.
-    const someTranscriptionResults: AnalysisResult = {
-        sequenceLength: dnaSequence.length,
-        gc,
-        RNASequence,
-        rnaDownload: rnaDownloadURL
-    };
 
-    res.json(someTranscriptionResults);
+    res.json(results);
 });
 app.get('/api/results/:id', GetResults);
 

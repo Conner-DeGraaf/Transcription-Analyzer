@@ -6,6 +6,7 @@ import {
     calculateGCContent,
     analyzeDNA
 } from './dnaanalysis';
+import { AnalysisResult } from '../../lib/transcription-analysis_types';
 
 //unit test for calculateSequenceLength
 
@@ -112,25 +113,29 @@ describe('analyzeDNA', () => {
 
     it('should return the complete DNA analysis', () => {
 
-        expect(analyzeDNA("ATGC")).toEqual({
+        var expectedResult : AnalysisResult = {
+            rnaDownload: "",
+            RNASequence: "",
             sequenceLength: 4,
             gc: {
                 guaninePercent: 25,
                 cytosinePercent: 25
             }
-        });
-
+        }
+        expect(analyzeDNA("ATGC")).toEqual(expectedResult);
     });
 
     it('should handle an empty DNA sequence', () => {
-
-        expect(analyzeDNA("")).toEqual({
+        var expectedResult : AnalysisResult = {
+            rnaDownload: "",
+            RNASequence: "",
             sequenceLength: 0,
             gc: {
                 guaninePercent: 0,
                 cytosinePercent: 0
             }
-        });
+        }
+        expect(analyzeDNA("")).toEqual(expectedResult);
 
     });
 

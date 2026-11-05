@@ -86,7 +86,8 @@ export function analyzeDNA(dna: string): AnalysisResult {
      return {
 
         sequenceLength: dna.length,
-
+        RNASequence: "",
+        "rnaDownload": "",
         gc: calculateGCContent(dna)
     };
 }
