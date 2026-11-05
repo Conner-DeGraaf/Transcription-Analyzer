@@ -24,17 +24,6 @@ interface MulterRequest extends Request {
     }
 }
 
-// Takes in a raw FASTA file and returns a string of DNA (GTCA)
-function ValidateFASTAFile(fileData: string): string {
-    if (!fileData) {
-        throw new Error("Empty file")
-    }
-
-    // Other checks
-
-    return "GTCA";
-}
-
 app.post('/api/analyze', upload.single('file'), (req: MulterRequest, res: Response): any => {
 
     // If you want to learn more about req.file look at
