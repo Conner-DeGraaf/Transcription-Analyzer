@@ -44,7 +44,7 @@ app.post('/api/analyze', upload.single('file'), (req: MulterRequest, res: Respon
     }
 
     // Validate FASTA file
-    if(isNotValidFastaFormat(req.file)){
+    if (isNotValidFastaFormat(req.file)) {
         return res.status(422).json({ error: 'Invalid FASTA file format.' });
     };
 
@@ -54,7 +54,7 @@ app.post('/api/analyze', upload.single('file'), (req: MulterRequest, res: Respon
     console.log("File received with data: \n" + fileData);
     console.log("Received direction: " + req.body.direction);
 
-    if(isNotValidDNASequence(fileData)){
+    if (isNotValidDNASequence(fileData)) {
         return res.status(422).json({ error: 'Invalid DNA sequence.' });
     }
 

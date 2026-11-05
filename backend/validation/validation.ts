@@ -22,7 +22,7 @@ export function isNotValidDNASequence(fileData: string): boolean {
 
     // Strictly A, C, G, T characters (case-insensitive)
     const validDnaRegex = /^[ACGTacgt]+$/;
-    if(!validDnaRegex.test(cleanSequence)){
+    if (!validDnaRegex.test(cleanSequence)) {
         return true;
     }
 
@@ -62,16 +62,16 @@ export function isNotValidFastaFormat(file?: Express.Multer.File): boolean {
 
 
         if (trimmedLine.startsWith('>')) {
-        // If entering a new header, verify the preceding header had sequence content
-        if (headerCount > 0 && currentSequenceLength === 0) {
-            return true;
-        }
-        headerCount++;
-        currentSequenceLength = 0;
+            // If entering a new header, verify the preceding header had sequence content
+            if (headerCount > 0 && currentSequenceLength === 0) {
+                return true;
+            }
+            headerCount++;
+            currentSequenceLength = 0;
         } else {
-        // Sequence line appearing before any header is invalid
-        if (headerCount === 0) return true;
-        currentSequenceLength += trimmedLine.length;
+            // Sequence line appearing before any header is invalid
+            if (headerCount === 0) return true;
+            currentSequenceLength += trimmedLine.length;
         }
     }
 
@@ -79,6 +79,6 @@ export function isNotValidFastaFormat(file?: Express.Multer.File): boolean {
     // Ensure at least one header was found and the final sequence is non-empty
     if (headerCount === 0 || currentSequenceLength === 0) return true;
 
-    
+
     return false;
 }
