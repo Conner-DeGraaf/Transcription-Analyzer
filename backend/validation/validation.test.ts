@@ -70,6 +70,9 @@ describe('Validation Functions', () => {
 
         it('Should accept whitespace between bases', () => {
             expect(isNotValidDNASequence('ACG\nT')).toBe(false);
+            expect(isNotValidDNASequence('ACG T')).toBe(false);
+            expect(isNotValidDNASequence('ACG \tT')).toBe(false);
+            expect(isNotValidDNASequence('ACG \t\t\nT\n \tTC A')).toBe(false);
         });
     });
 
