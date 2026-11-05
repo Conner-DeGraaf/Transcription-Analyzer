@@ -11,6 +11,7 @@ function App() {
   const [file, setFile] = useState<File | null>(null);
   const [direction, setDirection] = useState<string | null>("5' -> 3'");
   const [result, setResult] = useState<AnalysisResult | null>(null);
+  const [uploadError, setUploadError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
 
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -41,21 +42,23 @@ function App() {
       console.log("Posting");
       const response = await axios.post<AnalysisResult>('http://localhost:3420/api/analyze', formData);
       setResult(response.data);
+      setUploadError(null);
 
       console.log("Response Received " + JSON.stringify(response.data));
-    } catch (error) {
-      console.error("Error uploading file:", error);
+    } catch (error : any) {
+      const message = error.response?.data?.error ?? 'Upload failed. Please try again.';
+      setUploadError(message);
     } finally {
       setLoading(false);
     }
   };
+
   return (
     <>
       <section id="center">
         <h1 className='font-display'>Insert fully working transcription analyzer here :)</h1>
         <div className="border-2 border-gray-100 p-1 m-3">
-        <table>
-          <tr>
+        <div className="grid grid-cols-4 items-center">
             <input
               type="file"
               onChange={handleFileChange}
@@ -71,8 +74,12 @@ function App() {
               <option value="5'-&gt;3'">5' -&gt; 3'</option>
               <option value="3'-&gt;5'">3' -&gt; 5'</option>
             </select>
-          </tr>
-        </table>
+            {uploadError && (
+              <p className="mt-2 text-sm font-medium text-red-600">
+                {uploadError}
+              </p>
+            )}
+        </div>
         </div>
         <form onSubmit={handleUpload} className="flex flex-col gap-5">
           <button
