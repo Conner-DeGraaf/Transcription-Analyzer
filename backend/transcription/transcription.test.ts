@@ -13,7 +13,7 @@ describe('DNA transcription', () => {
     });
 
     it('Transcribes a template written 3 to 5', () => {
-        expect(transcribeTemplateDNA('TAGC')).toBe('CGUA');
+        expect(transcribeTemplateDNA('TACG')).toBe('CGUA');
     });
 
     it('Handle lowercase template DNA', () => {
