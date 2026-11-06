@@ -7,7 +7,9 @@
     "test": "concurrently --kill-others-on-fail \"npm test --prefix backend\" \"npm test --prefix frontend\"",
     "test:coverage": "concurrently \"npm run test:coverage --prefix backend\" \"npm run test:coverage --prefix frontend\"",
     "test:watch": "concurrently \"npm run test:watch --prefix backend\" \"npm run test:watch --prefix frontend\"",
-    "dev": "concurrently \"cd backend && npx nodemon --exec tsx index.ts\" \"npm run dev --prefix frontend\""
+    "dev": "concurrently \"cd backend && npx nodemon --exec tsx index.ts\" \"npm run dev --prefix frontend\"",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "repository": {
     "type": "git",
@@ -21,10 +23,17 @@
   },
   "homepage": "https://github.com/Conner-DeGraaf/Transcription-Analyzer#readme",
   "devDependencies": {
+    "@eslint/js": "^9.39.5",
     "@types/swagger-jsdoc": "^6.0.4",
     "@types/swagger-ui-express": "^4.1.8",
     "concurrently": "^10.0.6",
+    "eslint": "^9.39.5",
+    "eslint-plugin-react": "^7.37.5",
+    "globals": "^17.14.0",
+    "jiti": "^2.7.0",
     "swagger-jsdoc": "^6.3.0",
-    "swagger-ui-express": "^5.0.1"
+    "swagger-ui-express": "^5.0.1",
+    "typescript": "5.9",
+    "typescript-eslint": "^8.72.1"
   }
 }
