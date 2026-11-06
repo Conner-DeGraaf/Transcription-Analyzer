@@ -1,8 +1,20 @@
+/**
+ * Transcribes a coding DNA with its matching RNA. (Just replaces T with U)
+ * @param template The template string lowercase or uppercase.
+ * @returns The uppercase transcribed DNA
+ * @throws Invalid DNA base [base]
+ */
 function transcribeCodingDNA(dna: string):
 string {
     return dna.toUpperCase().replaceAll('T', 'U');
 }
 
+/**
+ * Transcribes a template DNA with its matching RNA.
+ * @param template The template string lowercase or uppercase.
+ * @returns The uppercase transcribed DNA
+ * @throws Invalid DNA base [base]
+ */
 function transcribeTemplateDNA(template: string):
 string {
     const dna = template.toUpperCase();
