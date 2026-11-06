@@ -7,6 +7,7 @@ import { GetResults, SaveResults } from './results';
 import { isNotValidDNASequence, isNotValidFastaFormat } from './validation/validation';
 import { parseDNAFromFASTA } from './parse-dna';
 import { analyzeDNA } from './dnaAnalysis/dnaanalysis';
+import { transcribeCodingDNA, transcribeTemplateDNA } from './transcription/transcription';
 
 const app = express();
 app.use(cors());
@@ -48,17 +49,11 @@ app.post('/api/analyze', upload.single('file'), (req: MulterRequest, res: Respon
 
     const dnaSequence = parseDNAFromFASTA(fileData, req.body.direction!);
 
-    // TODO: Ashton
-    // Create GC Content & Other DNA Analysis
     var results : AnalysisResult = analyzeDNA(dnaSequence);
 
-    // TODO: Addison
-    // Transcription
-    results.RNASequence = ""
+    results.RNASequence = req.body.direction == "5'->3'" ? transcribeCodingDNA(dnaSequence) : transcribeTemplateDNA(dnaSequence)
 
     results.rnaDownload = SaveResults(req.file.originalname, results.RNASequence, fileData);
-
-    // Fill this in with the information that needs to be sent back to the frontend UI.
 
     res.json(results);
 });
