@@ -7,7 +7,7 @@
     "test": "concurrently --kill-others-on-fail \"npm test --prefix backend\" \"npm test --prefix frontend\"",
     "test:watch": "concurrently \"npm run test:watch --prefix backend\" \"npm run test:watch --prefix frontend\"",
     "dev": "concurrently \"cd backend && npx nodemon --exec tsx index.ts\" \"npm run dev --prefix frontend\"",
-    "lint": "npx eslint Transcription-Analyzer/backend",
+    "lint": "npx eslint transcription.ts",
     "lint:fix": "eslint . --fix"
   },
   "repository": {
