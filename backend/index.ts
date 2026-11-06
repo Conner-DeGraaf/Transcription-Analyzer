@@ -104,7 +104,6 @@ app.post('/api/analyze', upload.single('file'), (req: MulterRequest, res: Respon
 
     res.json(results);
 });
-}
 /**
  * @openapi
  * /api/results/:
