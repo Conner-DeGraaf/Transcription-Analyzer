@@ -20,6 +20,10 @@
   },
   "homepage": "https://github.com/Conner-DeGraaf/Transcription-Analyzer#readme",
   "devDependencies": {
-    "concurrently": "^10.0.6"
+    "@types/swagger-jsdoc": "^6.0.4",
+    "@types/swagger-ui-express": "^4.1.8",
+    "concurrently": "^10.0.6",
+    "swagger-jsdoc": "^6.3.0",
+    "swagger-ui-express": "^5.0.1"
   }
 }

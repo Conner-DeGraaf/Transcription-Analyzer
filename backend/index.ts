@@ -8,9 +8,28 @@ import { isNotValidDNASequence, isNotValidFastaFormat } from './validation/valid
 import { parseDNAFromFASTA } from './parse-dna';
 import { analyzeDNA } from './dnaAnalysis/dnaanalysis';
 
+import swaggerUi from 'swagger-ui-express';
+import swaggerJsdoc from 'swagger-jsdoc';
+import path from 'path';
+
 const app = express();
 app.use(cors());
 app.use(express.json());
+
+const swaggerOptions = {
+  definition: {
+    openapi: '3.0.0',
+    info: {
+      title: 'Transcription Analyzer API',
+      version: '2.0.0',
+      description: 'API documentation for the DNA to mRNA Transcription Analyzer',
+    },
+  },
+  // Tells Swagger where to look for your JSDoc comments
+  apis: [path.join(__dirname, 'index.ts')], 
+};
+const swaggerSpec = swaggerJsdoc(swaggerOptions);
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec))
 
 
 
@@ -24,7 +43,35 @@ interface MulterRequest extends Request {
         direction?: string; // "5'->3'" or "3'->5'"
     }
 }
-
+/**
+ * @openapi
+ * /api/analyze:
+ *   post:
+ *     summary: Analyze and transcribe a DNA FASTA file
+ *     description: Accepts a FASTA file and sequence direction, validates it, and transcribes the DNA into an mRNA sequence.
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         multipart/form-data:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               file:
+ *                 type: string
+ *                 format: binary
+ *                 description: The uploaded FASTA file (.fa, .fasta, .fna, .ffn, .fas)
+ *               direction:
+ *                 type: string
+ *                 enum: ["5'->3'", "3'->5'"]
+ *                 description: Sequence direction
+ *     responses:
+ *       200:
+ *         description: Successfully analyzed and transcribed DNA
+ *       400:
+ *         description: Bad Request (Missing file)
+ *       422:
+ *         description: Unprocessable Entity (Invalid format or sequence)
+ */
 app.post('/api/analyze', upload.single('file'), (req: MulterRequest, res: Response): any => {
 
     // If you want to learn more about req.file look at
@@ -48,7 +95,6 @@ app.post('/api/analyze', upload.single('file'), (req: MulterRequest, res: Respon
 
     const dnaSequence = parseDNAFromFASTA(fileData, req.body.direction!);
 
-    // TODO: Ashton
     // Create GC Content & Other DNA Analysis
     var results : AnalysisResult = analyzeDNA(dnaSequence);
 
@@ -62,7 +108,38 @@ app.post('/api/analyze', upload.single('file'), (req: MulterRequest, res: Respon
 
     res.json(results);
 });
+}
+/**
+ * @openapi
+ * /api/results/:
+ *   post:
+ *     summary: Gets the resultant fasta file after transcription.
+ *     description: Accepts a FASTA file and sequence direction, validates it, and transcribes the DNA into an mRNA sequence.
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         multipart/form-data:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               file:
+ *                 type: string
+ *                 format: binary
+ *                 description: The uploaded FASTA file (.fa, .fasta, .fna, .ffn, .fas)
+ *               direction:
+ *                 type: string
+ *                 enum: ["5'->3'", "3'->5'"]
+ *                 description: Sequence direction
+ *     responses:
+ *       200:
+ *         description: Successfully analyzed and transcribed DNA
+ *       400:
+ *         description: Bad Request (Missing file)
+ *       422:
+ *         description: Unprocessable Entity (Invalid format or sequence)
+ */
 app.get('/api/results/:id', GetResults);
+
 
 if (process.env.NODE_ENV != 'test') {
     app.listen(3420, () => console.log('Backend running on port 3420'));
