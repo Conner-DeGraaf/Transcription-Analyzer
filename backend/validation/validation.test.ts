@@ -24,7 +24,7 @@ describe('Validation Functions', () => {
         });
     });
 
-    describe('FR-06 + FR-07', () => {
+    describe('FR-06 + FR-07 + FR-18', () => {
         it('Should reject improper fasta content', () => {
             expect(isNotValidFastaFormat(fastaFile('sequence.fa', 'ACGT'))).toBe(true);
             expect(isNotValidFastaFormat(fastaFile('sequence.fa', 'ACGT\n>one\nTGCA'))).toBe(true);
