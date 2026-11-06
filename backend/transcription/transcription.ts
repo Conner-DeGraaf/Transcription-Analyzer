@@ -1,6 +1,6 @@
 /**
  * Transcribes a coding DNA with its matching RNA. (Just replaces T with U)
- * @param template The template string lowercase or uppercase.
+ * @param dna The template string lowercase or uppercase.
  * @returns The uppercase transcribed DNA
  * @throws Invalid DNA base [base]
  */
