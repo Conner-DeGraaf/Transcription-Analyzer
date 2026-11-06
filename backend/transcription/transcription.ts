@@ -14,7 +14,7 @@ string {
         if (base === "A") mrna += "U";
         else if (base === "T") mrna += "A";
         else if (base === "C") mrna += "G";
-        else if (base === "G") mrna += "G";
+        else if (base === "G") mrna += "C";
         else throw new Error("Invalid DNA base: " + base);
     }
     return mrna;
