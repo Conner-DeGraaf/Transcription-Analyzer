@@ -17,7 +17,7 @@ describe('DNA transcription', () => {
     });
 
     it('Handle lowercase template DNA', () => {
-        expect(transcribeTemplateDNA('TACG')).toBe('CGUA');
+        expect(transcribeTemplateDNA('tacg')).toBe('CGUA');
     });
 })
 
