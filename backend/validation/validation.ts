@@ -1,6 +1,10 @@
 
 
-
+/**
+ * Check if a FASTA file's sequences are valid.
+ * @param fileData A complete FASTA file's contents, assumed to already be checked via
+ * @returns If the DNA sequences in the file use valid bases only.
+ */
 export function isNotValidDNASequence(fileData: string): boolean {
     if (!fileData) {
         return true;
@@ -30,7 +34,11 @@ export function isNotValidDNASequence(fileData: string): boolean {
     return false;
 }
 
-
+/**
+ * Check if a file is in the FASTA format. Does not check the sequences themselves.
+ * @param file A FASTA file from Multer
+ * @returns If the file is a valid FASTA file. Does not check the sequences themselves.
+ */
 export function isNotValidFastaFormat(file?: Express.Multer.File): boolean {
     if (!file) return true;
 

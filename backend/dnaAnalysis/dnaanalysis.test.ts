@@ -1,30 +1,11 @@
 import { describe, it, expect } from 'vitest';
 
 import {
-    calculateSequenceLength,
     countNucleotides,
     calculateGCContent,
     analyzeDNA
 } from './dnaanalysis';
 import { AnalysisResult } from '../../lib/transcription-analysis_types';
-
-//unit test for calculateSequenceLength
-
-describe('calculateSequenceLength', () => {
-
-    it('should return the correct sequence length', () => {
-        expect(calculateSequenceLength("ATGC")).toBe(4);
-    });
-
-    it('should return 0 for an empty sequence', () => {
-        expect(calculateSequenceLength("")).toBe(0);
-    });
-
-    it('should count a single nucleotide', () => {
-        expect(calculateSequenceLength("A")).toBe(1);
-    });
-
-});
 
 //unit test for countNucleotides 
 

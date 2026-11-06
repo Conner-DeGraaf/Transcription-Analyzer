@@ -1,0 +1,15 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "entryPoints": [
+    "backend/index.ts",
+    "backend/parse-dna.ts",
+    "backend/results.ts",
+    "backend/transcription/transcription.ts",
+    "backend/validation/validation.ts",
+    "backend/dnaanalysis/dnaanalysis.ts",
+    "lib/transcription-analysis_types.ts"
+  ],
+  "out": "docs",
+  "plugin": [],
+  "readme": "README.md"
+}

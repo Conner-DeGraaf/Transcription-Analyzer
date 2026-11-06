@@ -1,13 +1,10 @@
 import type { AnalysisResult, GCContent } from '../../lib/transcription-analysis_types';
 
-// Calculate DNA sequence length
-export function calculateSequenceLength(dna: string): number {
-
-    return dna.length;
-
-}
-
-// Count individual nucleotides (occurrences)
+/**
+ * Count individual nucleotides (occurrences)
+ * @param dna DNA sequence of bases as chars. ex 'GGBCA'. Can be lowercase or uppercase.
+ * @returns Object containing counts indexed by character 
+ */
 export function countNucleotides(dna: string): { 
     A: number;
     T: number;
@@ -53,7 +50,12 @@ export function countNucleotides(dna: string): {
     
 }
 
-// Individual G and C contents 
+
+/**
+ * Calculates guaninePercent and cytosinePercent as (0-100)% from a dna sequence. Used for GC Content in analysis.
+ * @param dna DNA sequence of bases as chars. ex 'GGBCA'. Can be lowercase or uppercase.
+ * @returns Object containing guaninePercent and cytosinePercent.
+ */
 export function calculateGCContent(dna: string): GCContent {
   if (dna.length === 0) {
     return { guaninePercent: 0, cytosinePercent: 0 };
@@ -68,19 +70,11 @@ export function calculateGCContent(dna: string): GCContent {
 
 }
 
-// interface AnalysisResult{
-//     //DNA Analysis
-//     sequenceLength: Number,
-//     gc: GCContent,
-//     // Transcription
-//     RNASequence: string
-// }
-
-// interface GCContent{
-//     guaninePercent: Number, // ect. 35.4% G as 35.4
-//     cytosinePercent : Number
-// }
-
+/**
+ * Creates an AnalysisResult with everything but transcription information filled out.
+ * @param dna DNA sequence of bases as chars. ex 'GGBCA'. Can be lowercase or uppercase.
+ * @returns An AnalysisResult with sequenceLength, and gc filled out, and an empty RNASequence and rnaDownload.
+ */
 export function analyzeDNA(dna: string): AnalysisResult {
 
      return {
