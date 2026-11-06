@@ -50,3 +50,16 @@ To run unit tests use this command in the root directory. Unit tests can be foun
 ```bash
 npm run test
 ```
+also see
+```bash
+npm run test:coverage
+npm run test:watch
+```
+
+## Regenerating Docs
+
+To regenerate the backend documentation page use this command
+
+```bash
+npx run typedoc
+```
