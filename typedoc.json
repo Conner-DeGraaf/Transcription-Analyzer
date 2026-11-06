@@ -6,7 +6,7 @@
     "backend/results.ts",
     "backend/transcription/transcription.ts",
     "backend/validation/validation.ts",
-    "backend/dnaanalysis/dnaanalysis.ts",
+    "backend/dnaAnalysis/dnaanalysis.ts",
     "lib/transcription-analysis_types.ts"
   ],
   "out": "docs",

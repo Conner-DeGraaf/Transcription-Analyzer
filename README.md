@@ -61,5 +61,5 @@ npm run test:watch
 To regenerate the backend documentation page use this command
 
 ```bash
-npx run typedoc
+npx typedoc
 ```
