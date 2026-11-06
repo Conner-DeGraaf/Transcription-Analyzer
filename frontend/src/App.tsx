@@ -55,7 +55,7 @@ function App() {
   return (
     <>
       <section id="center">
-        <h1 className='font-display'>Transcript Analyzer</h1>
+        <h1 className='font-display'>Transcription Analyzer</h1>
         <div className="border-2 border-gray-100 p-1 m-3">
         <div className="grid grid-cols-4 items-center">
             <input

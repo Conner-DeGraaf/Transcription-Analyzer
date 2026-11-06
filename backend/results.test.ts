@@ -9,7 +9,7 @@ async function uploadTestFile(): Promise<Response> {
     return await request(app)
         .post('/api/analyze')
         .attach('file', filePath)
-        .field('direction', "5' -> 3'");
+        .field('direction', "5'->3'");
 }
 
 describe('POST /api/results', () => {
