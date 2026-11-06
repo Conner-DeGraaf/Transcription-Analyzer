@@ -1,0 +1,76 @@
+
+/Users/ashtonarens/CIS_350/Transcription-Analyzer/backend/dnaAnalysis/dnaanalysis.test.ts
+  116:9  error  Unexpected var, use let or const instead  no-var
+  129:9  error  Unexpected var, use let or const instead  no-var
+
+/Users/ashtonarens/CIS_350/Transcription-Analyzer/backend/index.ts
+   5:26  error  'GCContent' is defined but never used     @typescript-eslint/no-unused-vars
+  28:86  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  53:5   error  Unexpected var, use let or const instead  no-var
+
+/Users/ashtonarens/CIS_350/Transcription-Analyzer/backend/parse-dna.test.ts
+  2:8  error  'request' is defined but never used  @typescript-eslint/no-unused-vars
+  3:8  error  'app' is defined but never used      @typescript-eslint/no-unused-vars
+
+/Users/ashtonarens/CIS_350/Transcription-Analyzer/backend/parse-dna.ts
+  15:5  error  Unexpected var, use let or const instead  no-var
+
+/Users/ashtonarens/CIS_350/Transcription-Analyzer/backend/results.test.ts
+   2:29  error  'Request' is defined but never used                                                                         @typescript-eslint/no-unused-vars
+   5:24  error  'GetResults' is defined but never used                                                                      @typescript-eslint/no-unused-vars
+  46:34  error  Optional chain expressions can return undefined by design - using a non-null assertion is unsafe and wrong  @typescript-eslint/no-non-null-asserted-optional-chain
+  55:34  error  Optional chain expressions can return undefined by design - using a non-null assertion is unsafe and wrong  @typescript-eslint/no-non-null-asserted-optional-chain
+  65:34  error  Optional chain expressions can return undefined by design - using a non-null assertion is unsafe and wrong  @typescript-eslint/no-non-null-asserted-optional-chain
+
+/Users/ashtonarens/CIS_350/Transcription-Analyzer/backend/results.ts
+   2:8   error  'express' is defined but never used         @typescript-eslint/no-unused-vars
+   3:8   error  'cors' is defined but never used            @typescript-eslint/no-unused-vars
+   4:8   error  'multer' is defined but never used          @typescript-eslint/no-unused-vars
+   5:8   error  'crytpo' is defined but never used          @typescript-eslint/no-unused-vars
+   6:10  error  'AnalysisResult' is defined but never used  @typescript-eslint/no-unused-vars
+   6:26  error  'GCContent' is defined but never used       @typescript-eslint/no-unused-vars
+  22:5   error  Unexpected var, use let or const instead    no-var
+  36:5   error  Unexpected var, use let or const instead    no-var
+
+/Users/ashtonarens/CIS_350/Transcription-Analyzer/frontend/src/App.test.tsx
+  23:14  error  'React' must be in scope when using JSX  react/react-in-jsx-scope
+  29:14  error  'React' must be in scope when using JSX  react/react-in-jsx-scope
+  46:14  error  'React' must be in scope when using JSX  react/react-in-jsx-scope
+
+/Users/ashtonarens/CIS_350/Transcription-Analyzer/frontend/src/App.tsx
+  47:22  error  Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+  56:5   error  'React' must be in scope when using JSX                          react/react-in-jsx-scope
+  57:7   error  'React' must be in scope when using JSX                          react/react-in-jsx-scope
+  58:9   error  'React' must be in scope when using JSX                          react/react-in-jsx-scope
+  59:9   error  'React' must be in scope when using JSX                          react/react-in-jsx-scope
+  60:9   error  'React' must be in scope when using JSX                          react/react-in-jsx-scope
+  61:13  error  'React' must be in scope when using JSX                          react/react-in-jsx-scope
+  68:13  error  'React' must be in scope when using JSX                          react/react-in-jsx-scope
+  69:13  error  'React' must be in scope when using JSX                          react/react-in-jsx-scope
+  73:15  error  'React' must be in scope when using JSX                          react/react-in-jsx-scope
+  73:39  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  73:48  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  74:15  error  'React' must be in scope when using JSX                          react/react-in-jsx-scope
+  74:39  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  74:48  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  77:15  error  'React' must be in scope when using JSX                          react/react-in-jsx-scope
+  83:9   error  'React' must be in scope when using JSX                          react/react-in-jsx-scope
+  84:11  error  'React' must be in scope when using JSX                          react/react-in-jsx-scope
+  92:21  error  'React' must be in scope when using JSX                          react/react-in-jsx-scope
+  95:7   error  'React' must be in scope when using JSX                          react/react-in-jsx-scope
+
+/Users/ashtonarens/CIS_350/Transcription-Analyzer/frontend/src/main.tsx
+  7:3  error  'React' must be in scope when using JSX  react/react-in-jsx-scope
+  8:5  error  'React' must be in scope when using JSX  react/react-in-jsx-scope
+
+/Users/ashtonarens/CIS_350/Transcription-Analyzer/frontend/src/results.tsx
+  16:9   error  'React' must be in scope when using JSX  react/react-in-jsx-scope
+  17:13  error  'React' must be in scope when using JSX  react/react-in-jsx-scope
+  18:13  error  'React' must be in scope when using JSX  react/react-in-jsx-scope
+  19:13  error  'React' must be in scope when using JSX  react/react-in-jsx-scope
+  20:13  error  'React' must be in scope when using JSX  react/react-in-jsx-scope
+  20:78  error  'React' must be in scope when using JSX  react/react-in-jsx-scope
+
+✖ 52 problems (52 errors, 0 warnings)
+  6 errors and 0 warnings potentially fixable with the `--fix` option.
+
