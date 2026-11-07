@@ -1,28 +1,33 @@
 
-/Users/ashtonarens/CIS_350/Transcription-Analyzer/backend/dnaAnalysis/dnaanalysis.test.ts
-  116:9  error  Unexpected var, use let or const instead  no-var
-  129:9  error  Unexpected var, use let or const instead  no-var
+> transcription-analyzer@1.0.0 lint
+> eslint .
 
-/Users/ashtonarens/CIS_350/Transcription-Analyzer/backend/index.ts
+
+/Users/addi/Transcription-Analyzer/backend/dnaAnalysis/dnaanalysis.test.ts
+   97:9  error  Unexpected var, use let or const instead  no-var
+  110:9  error  Unexpected var, use let or const instead  no-var
+
+/Users/addi/Transcription-Analyzer/backend/index.ts
    5:26  error  'GCContent' is defined but never used     @typescript-eslint/no-unused-vars
-  28:86  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
-  53:5   error  Unexpected var, use let or const instead  no-var
+  76:86  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  99:5   error  Unexpected var, use let or const instead  no-var
 
-/Users/ashtonarens/CIS_350/Transcription-Analyzer/backend/parse-dna.test.ts
+/Users/addi/Transcription-Analyzer/backend/parse-dna.test.ts
   2:8  error  'request' is defined but never used  @typescript-eslint/no-unused-vars
   3:8  error  'app' is defined but never used      @typescript-eslint/no-unused-vars
 
-/Users/ashtonarens/CIS_350/Transcription-Analyzer/backend/parse-dna.ts
+/Users/addi/Transcription-Analyzer/backend/parse-dna.ts
   15:5  error  Unexpected var, use let or const instead  no-var
 
-/Users/ashtonarens/CIS_350/Transcription-Analyzer/backend/results.test.ts
+/Users/addi/Transcription-Analyzer/backend/results.test.ts
    2:29  error  'Request' is defined but never used                                                                         @typescript-eslint/no-unused-vars
    5:24  error  'GetResults' is defined but never used                                                                      @typescript-eslint/no-unused-vars
+  16:5   error  Expected an assignment or function call and instead saw an expression                                       @typescript-eslint/no-unused-expressions
   46:34  error  Optional chain expressions can return undefined by design - using a non-null assertion is unsafe and wrong  @typescript-eslint/no-non-null-asserted-optional-chain
   55:34  error  Optional chain expressions can return undefined by design - using a non-null assertion is unsafe and wrong  @typescript-eslint/no-non-null-asserted-optional-chain
   65:34  error  Optional chain expressions can return undefined by design - using a non-null assertion is unsafe and wrong  @typescript-eslint/no-non-null-asserted-optional-chain
 
-/Users/ashtonarens/CIS_350/Transcription-Analyzer/backend/results.ts
+/Users/addi/Transcription-Analyzer/backend/results.ts
    2:8   error  'express' is defined but never used         @typescript-eslint/no-unused-vars
    3:8   error  'cors' is defined but never used            @typescript-eslint/no-unused-vars
    4:8   error  'multer' is defined but never used          @typescript-eslint/no-unused-vars
@@ -32,12 +37,221 @@
   22:5   error  Unexpected var, use let or const instead    no-var
   36:5   error  Unexpected var, use let or const instead    no-var
 
-/Users/ashtonarens/CIS_350/Transcription-Analyzer/frontend/src/App.test.tsx
+/Users/addi/Transcription-Analyzer/docs/assets/main.js
+  3:375    error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  3:781    error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  3:837    error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  3:1318   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  3:1726   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  3:2271   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  3:2293   error  Unexpected aliasing of 'this' to local variable                            @typescript-eslint/no-this-alias
+  3:2310   error  Unexpected aliasing of 'this' to local variable                            @typescript-eslint/no-this-alias
+  3:2383   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  3:2641   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  3:2760   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  3:3060   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  3:3404   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  3:3517   error  Unnecessary escape character: \-                                           no-useless-escape
+  3:3523   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  3:3654   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  3:3901   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:308    error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:541    error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:834    error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:1440   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:1461   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:1701   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:1978   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:2394   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:2766   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:4101   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:4166   error  'b' is already defined                                                     no-redeclare
+  4:4178   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:4313   error  'b' is already defined                                                     no-redeclare
+  4:4325   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:4362   error  'b' is already defined                                                     no-redeclare
+  4:4374   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:4436   error  'b' is already defined                                                     no-redeclare
+  4:4448   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:4514   error  'b' is already defined                                                     no-redeclare
+  4:4526   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:4577   error  'b' is already defined                                                     no-redeclare
+  4:4589   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:4644   error  'b' is already defined                                                     no-redeclare
+  4:4656   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:4913   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:5965   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:6114   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:6136   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:6675   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:6925   error  'c' is already defined                                                     no-redeclare
+  4:7254   error  'l' is already defined                                                     no-redeclare
+  4:7291   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:7452   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:7756   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:7805   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:7986   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:8698   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:8884   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:9192   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:9317   error  'i' is already defined                                                     no-redeclare
+  4:9365   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:9434   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:9680   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:9827   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:9847   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:10357  error  'c' is already defined                                                     no-redeclare
+  4:10425  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:10830  error  'm' is already defined                                                     no-redeclare
+  4:10861  error  'g' is already defined                                                     no-redeclare
+  4:11059  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:11254  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:11373  error  'm' is already defined                                                     no-redeclare
+  4:11404  error  'g' is already defined                                                     no-redeclare
+  4:11481  error  'c' is already defined                                                     no-redeclare
+  4:11515  error  'g' is already defined                                                     no-redeclare
+  4:11532  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:11691  error  'c' is already defined                                                     no-redeclare
+  4:11715  error  '_' is already defined                                                     no-redeclare
+  4:11779  error  'c' is already defined                                                     no-redeclare
+  4:11803  error  'k' is already defined                                                     no-redeclare
+  4:11959  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:12038  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:12607  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:12863  error  'l' is already defined                                                     no-redeclare
+  4:12887  error  'd' is already defined                                                     no-redeclare
+  4:12908  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:13045  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:13066  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:13651  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:13822  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:14050  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:14261  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:14382  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:14564  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:14864  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:14965  error  's' is already defined                                                     no-redeclare
+  4:15469  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:16207  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:16368  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:16612  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:16746  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:16854  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:17072  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:17252  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:17386  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:18430  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:18561  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:18870  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:19062  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:19214  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:19520  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:19691  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:19741  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:20559  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:21234  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:21359  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:21731  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:22554  error  'r' is already defined                                                     no-redeclare
+  4:22779  error  'r' is already defined                                                     no-redeclare
+  4:23227  error  'i' is already defined                                                     no-redeclare
+  4:23371  error  'i' is already defined                                                     no-redeclare
+  4:23529  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:24799  error  'i' is already defined                                                     no-redeclare
+  4:25523  error  'i' is already defined                                                     no-redeclare
+  4:25626  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:25653  error  'define' is not defined                                                    no-undef
+  4:25664  error  'define' is not defined                                                    no-undef
+  4:25806  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:25831  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:25944  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:27139  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:27508  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:27667  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:28138  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:28291  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:28477  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:29147  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:29235  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:29330  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:29420  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:29556  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:29780  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:30069  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:30442  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:30536  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:30652  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:30691  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:30827  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:30909  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:31019  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:31108  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:31207  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  4:31387  error  Do not access Object.prototype method 'hasOwnProperty' from target object  no-prototype-builtins
+  4:31479  error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  5:136    error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  5:227    error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  5:511    error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  5:977    error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  5:1322   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  5:1366   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  5:1779   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  5:1885   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  5:1939   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  5:1998   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  5:2237   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  5:2321   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  5:2759   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  5:3178   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  6:84     error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  6:218    error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  6:530    error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  6:754    error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  6:996    error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  6:1818   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  6:1866   error  'dt' is assigned a value but never used                                    @typescript-eslint/no-unused-vars
+  6:1948   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  6:2002   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  6:2269   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  6:2386   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  6:2704   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  6:2879   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  6:3001   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  6:3305   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  6:3499   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  6:3529   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  6:3813   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  6:4048   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  6:4141   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  6:4190   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  6:4360   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  6:4545   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  6:4655   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  6:5018   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  6:6000   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  6:6304   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  6:6455   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  6:6497   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  6:6733   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  6:6939   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  6:7073   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  6:7314   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  6:7469   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  6:7896   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  6:8121   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  6:8687   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  6:8859   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  6:9026   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  6:9261   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  6:9847   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+  6:9933   error  Expected an assignment or function call and instead saw an expression      @typescript-eslint/no-unused-expressions
+
+/Users/addi/Transcription-Analyzer/frontend/src/App.test.tsx
   23:14  error  'React' must be in scope when using JSX  react/react-in-jsx-scope
   29:14  error  'React' must be in scope when using JSX  react/react-in-jsx-scope
   46:14  error  'React' must be in scope when using JSX  react/react-in-jsx-scope
 
-/Users/ashtonarens/CIS_350/Transcription-Analyzer/frontend/src/App.tsx
+/Users/addi/Transcription-Analyzer/frontend/src/App.tsx
   47:22  error  Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
   56:5   error  'React' must be in scope when using JSX                          react/react-in-jsx-scope
   57:7   error  'React' must be in scope when using JSX                          react/react-in-jsx-scope
@@ -59,11 +273,11 @@
   92:21  error  'React' must be in scope when using JSX                          react/react-in-jsx-scope
   95:7   error  'React' must be in scope when using JSX                          react/react-in-jsx-scope
 
-/Users/ashtonarens/CIS_350/Transcription-Analyzer/frontend/src/main.tsx
+/Users/addi/Transcription-Analyzer/frontend/src/main.tsx
   7:3  error  'React' must be in scope when using JSX  react/react-in-jsx-scope
   8:5  error  'React' must be in scope when using JSX  react/react-in-jsx-scope
 
-/Users/ashtonarens/CIS_350/Transcription-Analyzer/frontend/src/results.tsx
+/Users/addi/Transcription-Analyzer/frontend/src/results.tsx
   16:9   error  'React' must be in scope when using JSX  react/react-in-jsx-scope
   17:13  error  'React' must be in scope when using JSX  react/react-in-jsx-scope
   18:13  error  'React' must be in scope when using JSX  react/react-in-jsx-scope
@@ -71,6 +285,6 @@
   20:13  error  'React' must be in scope when using JSX  react/react-in-jsx-scope
   20:78  error  'React' must be in scope when using JSX  react/react-in-jsx-scope
 
-✖ 52 problems (52 errors, 0 warnings)
+✖ 260 problems (260 errors, 0 warnings)
   6 errors and 0 warnings potentially fixable with the `--fix` option.
 
