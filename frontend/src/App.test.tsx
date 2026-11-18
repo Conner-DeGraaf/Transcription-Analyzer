@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import axios from 'axios';
 import { describe, it, expect, vi } from 'vitest';
@@ -25,13 +25,17 @@ describe('App Component', () => {
       expect(button).toBeDisabled();
     });
 
-    it('enables the button after selecting a file', () => {
+    it('enables the button after selecting a file and direction', async () => {
       render(<App />);
+      const user = userEvent.setup();
       const input = screen.getByLabelText('Upload FASTA file'); // the file input. Make sure to update this if you change the label
+      const selection = screen.getByLabelText('Direction of Strand');
       const button = screen.getByRole('button', { name: /Run Analysis/i });
 
       const dummyFile = getDummyFile();
       fireEvent.change(input, { target: { files: [dummyFile] } });
+      await user.selectOptions(selection, "5'->3'");
+      
       expect(button).not.toBeDisabled();
     });
     
@@ -45,17 +49,23 @@ describe('App Component', () => {
 
       render(<App />);
       const input = screen.getByLabelText('Upload FASTA file'); // the file input. Make sure to update this if you change the label
+      const selection = screen.getByLabelText('Direction of Strand');
       const button = screen.getByRole('button', { name: /Run Analysis/i });
       
       const dummyFile = getDummyFile();
-      fireEvent.change(input, { target: { files: [dummyFile] } });
+      await user.upload(input, dummyFile);
+      await user.selectOptions(selection, "5'->3'");
 
-      await user.click(button);
+      expect(button).not.toBeDisabled();
+      fireEvent.submit(button.closest('form')!);
 
       const formData = new FormData();
       formData.append('file', dummyFile);
       formData.append('direction', "5'->3'");
-      expect(postSpy).toHaveBeenCalledWith('http://localhost:3420/api/analyze', formData)
+
+      await waitFor(() => 
+        expect(postSpy).toHaveBeenCalledWith('http://localhost:3420/api/analyze', formData)
+      );
     })
   })
   // TODO: FR27-29

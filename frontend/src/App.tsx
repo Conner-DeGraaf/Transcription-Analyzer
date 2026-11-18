@@ -58,7 +58,7 @@ function App() {
       <section id="center">
         <h1 className='font-display'>Transcription Analyzer</h1>
         <div className='bg-[#1E293B] shadow-md rounded-xl p-10 m-10'>
-          <form onSubmit={handleUpload} className='grid grid-cols-1 lg:grid-cols-2 mb-5 space-y-3 lg:space-y1'>
+          <form onSubmit={handleUpload} className='grid grid-cols-1 lg:grid-cols-2 mb-5 space-y-3 lg:space-y-1'>
           <div className='flex mx-1'>
             <input
               type="file"
@@ -70,6 +70,7 @@ function App() {
             />
             <select
               name="direction"
+              aria-label="Direction of Strand"
               className='font-display rounded-md bg-[#334155] text-[#F8FAFC] p-2'
               onChange={handleDirectionChange}
               disabled={!file||loading}
