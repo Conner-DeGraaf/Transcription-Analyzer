@@ -8,7 +8,7 @@ import { AnalysisResult } from '../../lib/transcription-analysis_types'
 
 function App() {
   const [file, setFile] = useState<File | null>(null);
-  const [direction, setDirection] = useState("5'->3'");
+  const [direction, setDirection] = useState("");
   const [result, setResult] = useState<AnalysisResult | null>(null);
   const [uploadError, setUploadError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
@@ -19,6 +19,7 @@ function App() {
       setResult(null);
     }
   };
+
   const handleDirectionChange = (e: ChangeEvent<HTMLSelectElement>) => {
   if (e.target.value) {
     setDirection(e.target.value);
@@ -56,40 +57,40 @@ function App() {
     <>
       <section id="center">
         <h1 className='font-display'>Transcription Analyzer</h1>
-        <div className="border-2 border-gray-100 p-1 m-3">
-        <div className="grid grid-cols-4 items-center">
+        <div className='bg-[#1E293B] shadow-md rounded-xl p-10 m-10'>
+          <form onSubmit={handleUpload} className='grid grid-cols-1 lg:grid-cols-2 mb-5 space-y-3 lg:space-y1'>
+          <div className='flex mx-1'>
             <input
               type="file"
               onChange={handleFileChange}
               aria-label="Upload FASTA file"
               accept=".fa,.fasta,.fna,.ffn,.fas" // Explicitly don't include .faa because those are for amino acid sequences
-              className="font-display inline text-sm text-gray-600 file:mr-4 file:py-2.5 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100 transition-colors"
+              className='font-display w-full h-full rounded-md bg-[#334155] text-[#F8FAFC] p-2 mx-1'
+              required
             />
-            <label>Sequence Direction: </label>
             <select
               name="direction"
+              className='font-display rounded-md bg-[#334155] text-[#F8FAFC] p-2'
               onChange={handleDirectionChange}
-              disabled={!file||loading}>
+              disabled={!file||loading}
+              required>
+              <option value="">Direction</option>
               <option value="5'->3'">5' -&gt; 3'</option>
               <option value="3'->5'">3' -&gt; 5'</option>
             </select>
-            {uploadError && (
-              <p className="mt-2 text-sm font-medium text-red-600">
-                {uploadError}
-              </p>
-            )}
-        </div>
-        </div>
-        <form onSubmit={handleUpload} className="flex flex-col gap-5">
-          <button
-            type="submit"
-            className="bg-emerald-700 text-white py-2.5 px-4 rounded-lg hover:bg-emerald-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed font-medium"
-            disabled={!file || loading}
-          >
-            {loading ? 'Analyzing...' : (file ? ('Run Analysis on ' + file?.name) : 'Attach a file to run analysis')}
-          </button>
+          </div>
+          <div>
+            <button
+              type="submit"
+              className="bg-[#059669] text-white w-full py-2 px-4 rounded-lg hover:bg-[#047857] transition-colors disabled:opacity-50 disabled:cursor-not-allowed font-medium"
+              disabled={!file || loading || !direction}
+            >
+              {loading ? 'Analyzing...' : (file && direction ? ('Run Analysis on ' + file?.name) : 'Attach a file to run analysis')}
+            </button>
+          </div>
         </form>
         {result && (<AnalysisView result={result} />)}
+      </div>
       </section>
 
       <section id="spacer"></section>
