@@ -35,5 +35,8 @@
     "swagger-ui-express": "^5.0.1",
     "typescript": "5.9",
     "typescript-eslint": "^8.72.1"
+  },
+  "allowScripts": {
+    "@scarf/scarf@1.4.0": true
   }
 }
