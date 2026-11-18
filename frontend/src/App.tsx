@@ -45,8 +45,15 @@ function App() {
       setUploadError(null);
 
       console.log("Response Received " + JSON.stringify(response.data));
-    } catch (error : any) {
-      const message = error.response?.data?.error ?? 'Upload failed. Please try again.';
+    } catch (error: unknown) {
+      let message = 'Upload failed. Please try again.';
+
+      if (error instanceof Error) {
+        message = error.message;
+      } else if (typeof error === 'string') {
+        message = error;
+      }
+      
       setUploadError(message);
     } finally {
       setLoading(false);
@@ -76,8 +83,8 @@ function App() {
               disabled={!file||loading}
               required>
               <option value="">Direction</option>
-              <option value="5'->3'">5' -&gt; 3'</option>
-              <option value="3'->5'">3' -&gt; 5'</option>
+              <option value="5'->3'">{"5' -> 3'"}</option>
+              <option value="3'->5'">{"5' -> 3'"}</option>
             </select>
           </div>
           <div>
@@ -90,6 +97,11 @@ function App() {
             </button>
           </div>
         </form>
+        {uploadError &&(
+          <div className='bg-red-600 w-full text-white rounded-lg p-2'>
+            <p>There was an error: {uploadError}</p>
+          </div>
+        )}
         {result && (<AnalysisView result={result} />)}
       </div>
       </section>
