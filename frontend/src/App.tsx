@@ -84,7 +84,7 @@ function App() {
               required>
               <option value="">Direction</option>
               <option value="5'->3'">{"5' -> 3'"}</option>
-              <option value="3'->5'">{"5' -> 3'"}</option>
+              <option value="3'->5'">{"3' -> 5'"}</option>
             </select>
           </div>
           <div>
